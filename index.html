@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#f3e7d3" />
+  <title>Minimax Atelier</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> GitHub Pages ready</div>
+      <div class="hero-grid">
+        <div>
+          <h1>Play a perfect opponent in a hand-crafted web arcade.</h1>
+          <p class="lede">This fully static Tic-Tac-Toe demo is built with HTML, CSS, and JavaScript only. It runs directly on GitHub Pages, keeps state in the browser, and lets you switch between different AI personalities.</p>
+          <div class="hero-meta">
+            <div class="chip"><strong>Mode</strong> Human X vs AI O</div>
+            <div class="chip"><strong>Deploy</strong> Static `docs/` site</div>
+            <div class="chip"><strong>AI</strong> Perfect, tactical, mirror, random</div>
+          </div>
+        </div>
+        <aside class="prompt-card">
+          <h2>Current prompt</h2>
+          <p id="bannerMessage">Loading board state...</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="board-layout">
+      <article class="board-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Board</h2>
+            <p>Click any empty square. Empty tiles show the solver position number.</p>
+          </div>
+          <div class="status-pill" id="statusPill">Loading</div>
+        </div>
+        <div id="board" class="board" aria-label="Tic-tac-toe board"></div>
+      </article>
+
+      <aside class="sidebar">
+        <div class="info-card">
+          <h3>Game state</h3>
+          <div class="stats">
+            <div class="stat"><span>Winner</span><strong id="winnerValue">-</strong></div>
+            <div class="stat"><span>Next turn</span><strong id="turnValue">-</strong></div>
+            <div class="stat"><span>Last human</span><strong id="humanValue">-</strong></div>
+            <div class="stat"><span>Last AI</span><strong id="aiValue">-</strong></div>
+          </div>
+        </div>
+
+        <div class="info-card mode-card">
+          <h3>AI mode</h3>
+          <div class="mode-row">
+            <div>
+              <label class="field-label" for="aiMode">Opponent style</label>
+              <select id="aiMode" class="select" aria-label="Choose AI mode"></select>
+            </div>
+            <div class="mode-badge" id="modeBadge">Perfect minimax</div>
+          </div>
+          <p id="modeDescription" class="mode-description"></p>
+          <p class="mode-footnote">Switch anytime. Each mode makes the same board feel different.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Controls</h3>
+          <div class="toolbar">
+            <button id="resetButton" class="button button-primary" type="button">Reset board</button>
+            <button id="hintButton" class="button button-secondary" type="button">Show status</button>
+          </div>
+          <p id="notice" class="notice" aria-live="polite"></p>
+        </div>
+
+        <div class="info-card">
+          <h3>Move log</h3>
+          <ul id="moveLog" class="log"></ul>
+        </div>
+
+        <p class="footer-note">This site is static and safe for GitHub Pages. Point Pages to the `docs/` folder and publish it as-is.</p>
+      </aside>
+    </section>
+  </main>
+  <noscript>
+    <div class="noscript">JavaScript is required to play the minimax demo.</div>
+  </noscript>
+</body>
+</html>
